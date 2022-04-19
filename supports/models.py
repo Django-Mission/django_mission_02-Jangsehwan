@@ -32,7 +32,8 @@ class Faq(models.Model):
 class Inquiry(models.Model):
     title = models.TextField(verbose_name='제목')
     email = models.EmailField(verbose_name='이메일')  # 체크박스로 수신유무결정
-    phone_number = models.TextField(verbose_name='답변수신 폰번호')  # 체크박스로 수신유무결정
+    phone_number = models.CharField(
+        verbose_name='답변수신 폰번호', max_length=12)  # 체크박스로 수신유무결정
     content = models.TextField("문의 내용")
     image = models.ImageField(verbose_name='이미지', null=True, blank=True)
     writter = models.ForeignKey(
